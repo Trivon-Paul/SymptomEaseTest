@@ -3,13 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@id/navigation_dashboard">
 
-    <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.example.symptomease.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
@@ -18,8 +13,15 @@
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.symptomease.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_diagnostics"
+        android:name="com.example.symptomease.ui.diagnostics.DiagnosticsFragment"
+        android:label="Diagnostics"
+        tools:layout="@layout/fragment_diagnostics" />
+
+    <fragment
+        android:id="@+id/navigation_saved_symptoms"
+        android:name="com.example.symptomease.ui.savedSymptoms.SavedSymptomsFragment"
+        android:label="Saved Symptoms"
+        tools:layout="@layout/fragment_saved_symptoms" />
+
 </navigation>
