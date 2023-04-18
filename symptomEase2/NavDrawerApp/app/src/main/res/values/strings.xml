@@ -1,0 +1,20 @@
+<resources>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+
+    <string name="app_name">symptomeasetest</string>
+    <string name="system_prompt">"How are you feeling today?"</string>
+    <string name="symptom_prompt">How are you feeling today?</string>
+    <string name="send_button_text">Send </string>
+
+    <string-array name="Symptoms">
+        <item>Chest pain</item>
+        <item>Dizziness</item>
+        <item>Sluggish</item>
+        <item>Persistent Sadness</item>
+
+    </string-array>
+
+</resources>
