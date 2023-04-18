@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.symptomease.databinding.FragmentDashboardBinding
@@ -32,6 +33,14 @@ class DashboardFragment : Fragment() {
         dashboardViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
+
+        val saver = this.activity?.getPreferences(AppCompatActivity.MODE_PRIVATE)
+        saver?.let {
+            val editor = saver.edit()
+            // put a string set
+            editor.apply()
+        }
+
         return root
     }
 
