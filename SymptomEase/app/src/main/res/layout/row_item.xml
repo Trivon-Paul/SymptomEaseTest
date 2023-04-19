@@ -9,8 +9,8 @@
         android:id="@+id/symptomName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
         android:text="Symptom Name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -19,9 +19,20 @@
         android:id="@+id/symptomDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
         android:text="Symptom Description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Description" />
+
+    <TextView
+        android:id="@+id/Description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:text="Description:"
+        app:layout_constraintBottom_toTopOf="@+id/symptomDescription"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/symptomName" />
 </androidx.constraintlayout.widget.ConstraintLayout>
