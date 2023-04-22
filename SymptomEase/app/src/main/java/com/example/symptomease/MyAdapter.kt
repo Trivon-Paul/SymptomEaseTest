@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class MyAdapter(private val symptomName: MutableSet<String>,
-                private val symptomDescription: MutableSet<String>):
+class MyAdapter(private val symptomName: MutableList<String>,
+                private val symptomDescription: MutableList<String>):
         RecyclerView.Adapter<MyAdapter.MyViewHolder>(){
 
     class MyViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){

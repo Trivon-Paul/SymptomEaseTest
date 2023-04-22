@@ -1,5 +1,6 @@
 package com.example.symptomease.ui.savedSymptoms
 
+import android.database.sqlite.SQLiteOpenHelper
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.symptomease.MyAdapter
 import com.example.symptomease.R
 import com.example.symptomease.databinding.FragmentSavedSymptomsBinding
+import com.example.symptomease.ui.dashboard.SymptomDatabase
 
 class SavedSymptomsFragment : Fragment() {
 
@@ -21,6 +23,7 @@ class SavedSymptomsFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    private lateinit var dbHelper : SQLiteOpenHelper
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,18 +40,17 @@ class SavedSymptomsFragment : Fragment() {
         homeViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
+        dbHelper = SymptomDatabase(root.context)
 
-        val savedSymptoms = mutableSetOf<String>()
-        val savedSymptomsDescription = mutableSetOf<String>()
+        val savedSymptoms = mutableListOf<String>()
+        val savedSymptomsDescription = mutableListOf<String>()
 
-        val saver = this.activity?.getPreferences(AppCompatActivity.MODE_PRIVATE)
-        saver?.let {
-            saver.getStringSet("savedSymptomsName", savedSymptoms)
-            saver.getStringSet("savedSymptomsDescription", savedSymptomsDescription)
+        val cursor = (dbHelper as SymptomDatabase).viewAllSymptoms
+
+        while(cursor.moveToNext()){
+            savedSymptoms.add(cursor.getString(1))
+            savedSymptomsDescription.add(cursor.getString(2))
         }
-
-        savedSymptoms.add("Fever")
-        savedSymptomsDescription.add("Body core temperature is high")
 
         val recycler = root.findViewById<RecyclerView>(R.id.symptomsList)
 
